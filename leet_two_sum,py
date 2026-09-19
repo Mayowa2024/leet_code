@@ -1,10 +1,33 @@
+#fast but not memory efficient because of dictionary
 class Solution:   
     def twoSum(self, nums: list[int], target: int) -> list[int]:
+        seen={}
         for i, num in enumerate(nums):
             remaining=target-num
-            if remaining in nums[i+1:]:
-                j=nums.index(remaining,i+1)
-                return[i,j]
+            if remaining in seen:
+                return [seen[remaining],i]
+
+            seen[num]=i
+
+#memory efficient but slow no hash-table/dictionary
+class Solution:
+
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+
+        for i, num in enumerate(nums):
+
+            remaining = target - num
+
+            if remaining in nums[i + 1:]:
+                j = nums.index(remaining, i + 1)
+                return [i, j]
+
+
+nums = [2, 7, 11, 15]
+target = 9
+
+solution = Solution()
+print(solution.twoSum(nums, target))
 
 
                 
