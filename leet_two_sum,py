@@ -1,0 +1,21 @@
+class Solution:   
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        for i, num in enumerate(nums):
+            remaining=target-num
+            if remaining in nums[i+1:]:
+                j=nums.index(remaining,i+1)
+                return[i,j]
+
+
+                
+
+# i learnt for classes with self, we need to start with an instance
+#i also learnt that  list[start:stop], anyone left clean is worked on
+#.index method is (number, start,stop)too
+nums = [2,7,11,15]
+
+target = 9
+
+
+Solution=Solution()
+print(Solution.twoSum(nums,target))
